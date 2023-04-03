@@ -3,23 +3,34 @@
 //-----------------------------------------------------------
 //--------------------------------------------------------
 //----------------------------------------------------
-//const url=https://restcountries.com/v3.1/name/{name}
 
-const getCountries=async function(){
+
+
+const getCountries=async function(searchCountry){
 
  //const selectedCountry=document.querySelector();
 
  //const url=`https://restcountries.com/v3.1/name/${selectedCountry}`
- const url=`https://restcountries.com/v3.1/name/turkey`
 
+ const url=`https://restcountries.com/v3.1/name/${searchCountry}`
+ 
  const res=await fetch(url);
 
  const data=await res.json();
-
-console.log(data);
+ 
+ try {
+    
+ } catch (error) {
+    
+ }
 
 
 
 };
 
-getCountries()
+const searchBtn=document.querySelector(".btn-country");
+
+searchBtn.addEventListener("click",()=>{
+    const searchCountry=document.getElementById("search-country").value.trim();
+    getCountries(searchCountry)
+})
